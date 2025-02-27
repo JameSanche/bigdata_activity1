@@ -46,15 +46,15 @@ if "ticker" in datos:
     """, (ticker["high"], ticker["low"], ticker["vol"], ticker["last"], ticker["buy"], ticker["sell"], ticker["date"]))
 
     conn.commit()
-    print("✅ Datos insertados en la base de datos.")
+    print("Datos insertados en la base de datos.")
 else:
-    print("⚠️ No se encontraron datos para insertar.")
+    print("No se encontraron datos para insertar.")
 
 # -------- 4. Generar archivo de muestra (CSV y Excel) --------
 df = pd.read_sql_query("SELECT * FROM crypto_data", conn)
 df.to_csv("muestra_datos.csv", index=False)
 df.to_excel("muestra_datos.xlsx", index=False)
-print("✅ Archivo de muestra generado: muestra_datos.csv y muestra_datos.xlsx")
+print("Archivo de muestra generado: muestra_datos.csv y muestra_datos.xlsx")
 
 # -------- 5. Generar archivo de auditoría --------
 cursor.execute("SELECT high, low, vol, last, buy, sell, date FROM crypto_data ORDER BY id DESC LIMIT 1")
@@ -63,7 +63,7 @@ db_data = cursor.fetchone()
 conn.close()
 
 with open("auditoria.txt", "w", encoding="utf-8") as audit_file:
-    audit_file.write("📊 Comparación de datos entre API y Base de Datos\n")
+    audit_file.write("Comparación de datos entre API y Base de Datos\n")
     audit_file.write("="*50 + "\n")
 
     if "ticker" in datos and db_data:
@@ -77,12 +77,12 @@ with open("auditoria.txt", "w", encoding="utf-8") as audit_file:
                 differences.append(f"{field}: API={api_values[i]}, DB={db_values[i]}")
 
         if differences:
-            audit_file.write("❌ Diferencias encontradas:\n")
+            audit_file.write("Diferencias encontradas:\n")
             audit_file.writelines("\n".join(differences))
         else:
-            audit_file.write("✅ No se encontraron diferencias entre los datos del API y la base de datos.")
+            audit_file.write("No se encontraron diferencias entre los datos del API y la base de datos.")
     else:
-        audit_file.write("⚠️ No se encontraron datos para comparar.")
+        audit_file.write("No se encontraron datos para comparar.")
 
-print("✅ Archivo de auditoría generado: auditoria.txt")
+print("Archivo de auditoría generado: auditoria.txt")
 
