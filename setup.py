@@ -10,6 +10,7 @@ setup(
         'pandas',
         'openpyxl',
         'requests',
+        'pandas',
     ],
 
 )
