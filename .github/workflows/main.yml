@@ -35,5 +35,5 @@ jobs:
         with:
           commit_message: generación informe prueba json
           commit_user_name: James sanchez [GitHub Actions]
-          commit_user_email: andres.callejas@iudigital.edu.co
-          commit_author: Andres Callejas <james.sanchez@iudigital.edu.co>
+          commit_user_email: james.sanchez@iudigital.edu.co
+          commit_author: James Sanchez <james.sanchez@iudigital.edu.co>
