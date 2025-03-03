@@ -64,10 +64,6 @@ El archivo `auditoria.txt` muestra si hay diferencias entre los datos extraídos
 
 Si hay diferencias, se detallarán en el archivo.
 
-## 📌 **Posibles Mejoras**
-- Conectar a una base de datos en la nube en lugar de SQLite.
-- Implementar un sistema de notificaciones en caso de diferencias en los datos.
-- Automatizar la ejecución periódica con **cron jobs** o **Airflow**.
 
 ## Patricia Franco R ---- James Sanchez T
 
