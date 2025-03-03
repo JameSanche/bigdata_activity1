@@ -1,9 +1,3 @@
 Comparación de datos entre API y Base de Datos
 ==================================================
-Diferencias encontradas:
-high: API=516099.66656665, DB=516099.66656665
-low: API=479112.50000009, DB=479112.50000009
-vol: API=100.48629225, DB=100.48629225
-last: API=500062.36032481, DB=500062.36032481
-buy: API=499640.88987640, DB=499640.8898764
-sell: API=500239.26377885, DB=500239.26377885
+No se encontraron datos para comparar.
