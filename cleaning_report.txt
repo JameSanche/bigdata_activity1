@@ -1,4 +1,4 @@
-Registros iniciales: 26
+Registros iniciales: 78
 Duplicados eliminados: 0
-Valores nulos eliminados: 12
-Registros finales: 15
+Valores nulos eliminados: 42
+Registros finales: 41
