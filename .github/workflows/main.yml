@@ -24,16 +24,15 @@ jobs:
           python -m venv venv
           .\venv\Scripts\activate
 
-      - name: ⬆️ Actualizar pip y instalar dependencias
-        run: |
-          .\venv\Scripts\activate
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: ⬆️ Actualizar pip 
+        run: pip install --upgrade pip
+
+      - name:  🔧 Instalar dependencias
+        run: pip install -e .
 
       - name: ▶️ Ejecutar script actividad1.py
-        run: |
-          .\venv\Scripts\activate
-          python src/bgdata/actividad1.py
+        run: | 
+          python src\bgdata\actividad1.py
 
       - name: ▶️ Ejecutar script cleaning.py
         run: |
@@ -43,8 +42,8 @@ jobs:
       - name: 🔄 Commit y Push de cambios
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Generación informe prueba JSON"
-          commit_user_name: "GitHub Actions"
-          commit_user_email: "james.sanchez@iudigital.edu.co"
-          commit_author: "James Sanchez <james.sanchez@iudigital.edu.co>"
+          commit_message: generación informe prueba json
+          commit_user_name: James sanchez [GitHub Actions]
+          commit_user_email: james.sanchez@iudigital.edu.co
+          commit_author: James Sanchez <james.sanchez@iudigital.edu.co>
 
