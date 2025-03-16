@@ -4,75 +4,86 @@ import json
 import pandas as pd
 
 # -------- 1. Obtener datos desde el API --------
-def get_data_api(url="", params={}):
-    url = "{}/{}/{}/".format(url, params["coin"], params["method"])
+def get_data_api(url, params=None):
+    """
+    - url: URL base de la API.
+    - params: Diccionario con parámetros GET (?name=mario).
+    """
     try:
-        response = requests.get(url)
+        response = requests.get(url, params=params)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as error:
-        print(error)
+        print(f"Error al obtener datos: {error}")
         return {}
 
-    # Configuración del API
-parameters = {"coin": "BTC", "method": "ticker"}
-url = "https://www.mercadobitcoin.net/api"
-datos = get_data_api(url=url, params=parameters)
+# -------- 2. Configuración de API y Base de Datos --------
+url_amiibo = "https://www.amiiboapi.com/api/amiibo/"
+params_amiibo = {"name": "mario"}  # Cambia el nombre según el personaje que quieras buscar
 
-# -------- 2. Conectar a SQLite y crear la base de datos --------
+datos = get_data_api(url_amiibo, params_amiibo)
+
+# -------- 3. Mostrar datos en consola --------
+if "amiibo" in datos:
+    print("\nDatos obtenidos de la API de Amiibo:")
+    for amiibo in datos["amiibo"]:
+        print(f"Nombre: {amiibo['name']}, Personaje: {amiibo['character']}, "
+              f"Serie: {amiibo['amiiboSeries']}, Juego: {amiibo['gameSeries']}, Tipo: {amiibo['type']}")
+else:
+    print("No se encontraron datos en la API.")
+
+# -------- 4. Conectar a SQLite y crear la base de datos --------
 conn = sqlite3.connect("big_data.db")
 cursor = conn.cursor()
 
-# Crear la tabla si no existe
+# Crear tabla para almacenar Amiibos si no existe
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS crypto_data (
+CREATE TABLE IF NOT EXISTS amiibo_data (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    high REAL,
-    low REAL,
-    vol REAL,
-    last REAL,
-    buy REAL,
-    sell REAL,
-    date INTEGER
+    name TEXT,
+    character TEXT,
+    amiiboSeries TEXT,
+    gameSeries TEXT,
+    type TEXT
 )
 """)
 
-# -------- 3. Insertar datos en la base de datos --------
-if "ticker" in datos:
-    ticker = datos["ticker"]
-    cursor.execute("""
-    INSERT INTO crypto_data (high, low, vol, last, buy, sell, date)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-    """, (ticker["high"], ticker["low"], ticker["vol"], ticker["last"], ticker["buy"], ticker["sell"], ticker["date"]))
+# -------- 5. Insertar datos en la base de datos --------
+if "amiibo" in datos:
+    for amiibo in datos["amiibo"]:
+        cursor.execute("""
+        INSERT INTO amiibo_data (name, character, amiiboSeries, gameSeries, type)
+        VALUES (?, ?, ?, ?, ?)
+        """, (amiibo["name"], amiibo["character"], amiibo["amiiboSeries"], amiibo["gameSeries"], amiibo["type"]))
 
     conn.commit()
-    print("Datos insertados en la base de datos.")
+    print("\nDatos insertados en la base de datos.")
 else:
     print("No se encontraron datos para insertar.")
 
-# -------- 4. Generar archivo de muestra (CSV y Excel) --------
-df = pd.read_sql_query("SELECT * FROM crypto_data", conn)
+# -------- 6. Generar archivo de muestra (CSV y Excel) --------
+df = pd.read_sql_query("SELECT * FROM amiibo_data", conn)
 df.to_csv("muestra_datos.csv", index=False)
 df.to_excel("muestra_datos.xlsx", index=False)
-print("Archivo de muestra generado: muestra_datos.csv y muestra_datos.xlsx")
+print("\nArchivo de muestra generado: muestra_datos.csv y muestra_datos.xlsx")
 
-# -------- 5. Generar archivo de auditoría --------
-cursor.execute("SELECT high, low, vol, last, buy, sell, date FROM crypto_data ORDER BY id DESC LIMIT 1")
+# -------- 7. Generar archivo de auditoría --------
+cursor.execute("SELECT name, character, amiiboSeries, gameSeries, type FROM amiibo_data ORDER BY id DESC LIMIT 1")
 db_data = cursor.fetchone()
 
 conn.close()
 
 with open("auditoria.txt", "w", encoding="utf-8") as audit_file:
     audit_file.write("Comparación de datos entre API y Base de Datos\n")
-    audit_file.write("="*50 + "\n")
+    audit_file.write("=" * 50 + "\n")
 
-    if "ticker" in datos and db_data:
-        api_ticker = datos["ticker"]
+    if "amiibo" in datos and db_data:
+        api_amiibo = datos["amiibo"][0]  # Tomamos el primer resultado
         db_values = list(db_data)
-        api_values = [api_ticker["high"], api_ticker["low"], api_ticker["vol"], api_ticker["last"], api_ticker["buy"], api_ticker["sell"], api_ticker["date"]]
+        api_values = [api_amiibo["name"], api_amiibo["character"], api_amiibo["amiiboSeries"], api_amiibo["gameSeries"], api_amiibo["type"]]
 
         differences = []
-        for i, field in enumerate(["high", "low", "vol", "last", "buy", "sell", "date"]):
+        for i, field in enumerate(["name", "character", "amiiboSeries", "gameSeries", "type"]):
             if db_values[i] != api_values[i]:
                 differences.append(f"{field}: API={api_values[i]}, DB={db_values[i]}")
 
@@ -84,5 +95,4 @@ with open("auditoria.txt", "w", encoding="utf-8") as audit_file:
     else:
         audit_file.write("No se encontraron datos para comparar.")
 
-print("Archivo de auditoría generado: auditoria.txt")
-
+print("\nArchivo de auditoría generado: auditoria.txt")
