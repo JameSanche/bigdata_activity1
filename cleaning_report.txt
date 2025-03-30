@@ -1,4 +1,0 @@
-Registros iniciales: 26
-Duplicados eliminados: 0
-Valores nulos eliminados: 12
-Registros finales: 16
