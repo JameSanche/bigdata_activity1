@@ -1,0 +1,5 @@
+Comparación de datos entre API y Base de Datos
+==================================================
+Diferencias encontradas:
+name: API=Metal Mario - Tennis, DB=Mario - Baseball
+character: API=Metal Mario, DB=Mario
