@@ -45,7 +45,7 @@ def enrich_data(df_cleaned, df_additional):
 # Función para generar archivo de auditoría
 def generate_audit_log(df_cleaned, df_enriched):
     with open(audit_log_path, "w") as f:
-        f.write("📊 Reporte de Enriquecimiento de Datos\n")
+        f.write("Reporte de Enriquecimiento de Datos\n")
         f.write("="*50 + "\n")
         f.write(f"Registros en dataset base: {len(df_cleaned)}\n")
         f.write(f"Registros en dataset enriquecido: {len(df_enriched)}\n")
