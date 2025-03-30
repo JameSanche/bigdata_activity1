@@ -1,0 +1,6 @@
+Reporte de Enriquecimiento de Datos
+==================================================
+Registros en dataset base: 16
+Registros en dataset enriquecido: 16
+Columnas añadidas: ['stock', 'release_date', 'price']
+Enriquecimiento completado exitosamente.
