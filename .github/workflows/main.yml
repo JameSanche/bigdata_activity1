@@ -38,6 +38,10 @@ jobs:
         run: |
           python src/bgdata/cleaning.py
 
+      - name: ▶️ Ejecutar script transformation.py
+        run: |
+          python src/bgdata/transformation.py
+
       - name: 🔄 Commit y Push de cambios
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
