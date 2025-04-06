@@ -1,17 +1,32 @@
 id,name,character,amiiboSeries,gameSeries,type,price,release_date,stock
+1.0,Metal Mario - Tennis,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,28.51,2015-06-25,41
 2.0,Super Mario Cereal,Mario Cereal,Others,Kellogs,Card,22.24,2015-03-27,94
 3.0,Baby Mario - Soccer,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,41.34,2020-07-28,29
+4.0,Metal Mario - Soccer,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,35.99,2018-05-10,49
 5.0,Mario - Soccer,Mario,Mario Sports Superstars,Mario Sports Superstars,Card,9.81,2014-10-28,0
-6.0,Mario,Mario,Super Mario Bros.,Super Mario,Figure,32.71,2021-08-22,49
-8.0,Dr. Mario,Mario,Super Smash Bros.,Super Mario,Figure,37.81,2021-10-21,17
+7.0,8-Bit Mario Modern Color,Mario,8-bit Mario,Super Mario,Figure,21.24,2022-10-16,49
 9.0,Baby Mario - Horse Racing,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,49.89,2021-05-24,13
+10.0,Mario - Cat,Mario,Super Mario Bros.,Super Mario,Figure,33.66,2014-12-27,1
 11.0,Baby Mario - Golf,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,39.78,2017-07-14,5
 12.0,Mario - Wedding,Mario,Super Mario Bros.,Super Mario,Figure,13.9,2015-07-25,73
-13.0,Metal Mario - Golf,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,25.99,2019-09-02,75
 14.0,Mario,Mario,Super Smash Bros.,Super Mario,Figure,18.02,2018-07-09,90
-16.0,Baby Mario - Tennis,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,41.97,2014-07-30,47
-20.0,Baby Mario - Baseball,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,22.68,2023-04-14,57
-21.0,Mario - Golf,Mario,Mario Sports Superstars,Mario Sports Superstars,Card,18.24,2014-05-31,21
+17.0,Mario - Gold Edition,Mario,Super Mario Bros.,Super Mario,Figure,7.88,2014-04-01,17
+18.0,Mario - Power Up Band,Mario,Super Nintendo World,Super Mario,Band,10.76,2019-01-05,25
+19.0,Metal Mario - Horse Racing,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,38.79,2022-10-16,1
 22.0,Mario - Silver Edition,Mario,Super Mario Bros.,Super Mario,Figure,16.05,2018-09-07,14
-25.0,Metal Mario - Baseball,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,15.04,2014-08-29,62
+24.0,8-Bit Mario Classic Color,Mario,8-bit Mario,Super Mario,Figure,41.03,2016-06-19,34
 26.0,Mario - Baseball,Mario,Mario Sports Superstars,Mario Sports Superstars,Card,15.26,2015-11-22,32
+27.0,Metal Mario - Tennis,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,34.06,2021-02-23,63
+29.0,Baby Mario - Soccer,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,20.09,2017-05-15,42
+32.0,Mario,Mario,Super Mario Bros.,Super Mario,Figure,13.2,2017-07-14,53
+34.0,Dr. Mario,Mario,Super Smash Bros.,Super Mario,Figure,35.85,2015-09-23,34
+35.0,Baby Mario - Horse Racing,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,38.44,2014-05-31,46
+36.0,Mario - Cat,Mario,Super Mario Bros.,Super Mario,Figure,17.45,2016-09-17,93
+38.0,Mario - Wedding,Mario,Super Mario Bros.,Super Mario,Figure,34.18,2017-07-14,47
+39.0,Metal Mario - Golf,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,21.25,2021-06-23,71
+42.0,Baby Mario - Tennis,Baby Mario,Mario Sports Superstars,Mario Sports Superstars,Card,34.69,2018-06-09,8
+43.0,Mario - Gold Edition,Mario,Super Mario Bros.,Super Mario,Figure,23.04,2018-12-06,32
+45.0,Metal Mario - Horse Racing,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,38.39,2020-11-25,12
+48.0,Mario - Silver Edition,Mario,Super Mario Bros.,Super Mario,Figure,30.85,2014-05-31,37
+50.0,8-Bit Mario Classic Color,Mario,8-bit Mario,Super Mario,Figure,22.72,2022-05-19,30
+51.0,Metal Mario - Baseball,Metal Mario,Mario Sports Superstars,Mario Sports Superstars,Card,32.65,2023-09-11,66
